@@ -1,12 +1,11 @@
-const { createServer } = require('node:http');
-const hostname = '127.0.0.1';
-const port = 3000;
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('¡Hola Mundo!');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Este es mi server running at http://${hostname}:${port}/`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
